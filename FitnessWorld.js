@@ -14,6 +14,13 @@ const IntenseWorkoutPlans = [
 
 ];
 
+const BeginnerWorkoutPlans = [
+  { id: '1', title: 'Strength training', description: 'Strength training can be done with various tools, including free weights (dumbbells, barbells), weight machines, resistance bands, and even your own body weight (e.g., push-ups, squats). ', duration: '30 min', imageUrl: 'https://www.scienceforsport.com/wp-content/uploads/2023/11/PLFeat-scaled.webp' },
+  { id: '2', title: 'Cardio', description: 'Elevate heart rate through running or cycling', duration: '25 min', imageUrl: 'https://cdn.horizonfitness.rocks/catalog/product/h/e/hero-incline.jpg' },
+  { id: '3', title: 'Mobility', description: 'focus on improving the range of motion, flexibility, and control within your joints and surrounding muscles', duration: '20 min', imageUrl: 'https://images.contentstack.io/v3/assets/blt45c082eaf9747747/blt80edd413f838ac52/66f1345cfbc1b9cd82d7206e/mobility-exercise-basics-header.jpg?format=pjpg&auto=webp&quality=76&width=1232' },
+
+];
+
 export default function FitnessWorld() {
 
    const renderWorkout = ({ item }) => (
@@ -77,6 +84,18 @@ export default function FitnessWorld() {
         <Text style={styles.header}>Intense Workout Plans</Text>
         <FlatList
            data={IntenseWorkoutPlans}
+           renderItem={renderWorkout}
+           keyExtractor={(item) => item.id}
+           horizontal={true}
+           showsHorizontalScrollIndicator={false}
+        />
+      </View>
+
+      {/*Beiginner's Workout Plans S-ection*/}
+      <View style={styles.section}>
+        <Text style={styles.header}>Beginner Workout Plans</Text>
+        <FlatList
+           data={BeginnerWorkoutPlans}
            renderItem={renderWorkout}
            keyExtractor={(item) => item.id}
            horizontal={true}
